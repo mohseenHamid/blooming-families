@@ -1,6 +1,6 @@
-import BulletIcon from '@/components/ui/BulletIcon'
 "use client"
 
+import BulletIcon from '@/components/ui/BulletIcon'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import type { Booking } from '@/types/booking'
