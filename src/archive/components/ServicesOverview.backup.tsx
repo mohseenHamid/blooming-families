@@ -1,4 +1,5 @@
 /* Archived copy of src/components/ServicesOverview.tsx */
+import React from 'react'
 import Link from 'next/link'
 import { Users, BookOpen } from 'lucide-react'
 

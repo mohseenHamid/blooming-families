@@ -1,11 +1,22 @@
 /* Archived copy of src/app/(flow)/coaching/confirmation/page.tsx */
 "use client"
 
-import BulletIcon from '@/components/ui/BulletIcon'
+import React from 'react'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 // Note: This archived file previously imported Booking types from '@/types/booking',
 // which has also been archived. This file remains in archive only and is not used in build.
+
+// Local stub for BulletIcon to avoid importing from live components
+function BulletIcon(props: { className?: string }) {
+  return (
+    <span
+      className={props.className}
+      aria-hidden="true"
+      style={{ display: 'inline-block', width: 6, height: 6, background: 'currentColor', borderRadius: '9999px' }}
+    />
+  )
+}
 
 export default function ConfirmationPage() {
   const [booking, setBooking] = useState<any | null>(null)

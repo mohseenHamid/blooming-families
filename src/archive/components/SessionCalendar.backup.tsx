@@ -1,6 +1,7 @@
 /* Archived copy of src/components/SessionCalendar.tsx */
 "use client"
 
+import React from 'react'
 import { useState } from 'react'
 import { format, addDays, startOfWeek, isSameDay, isAfter, isBefore } from 'date-fns'
 

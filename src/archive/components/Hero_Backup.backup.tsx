@@ -1,5 +1,15 @@
 /* Archived copy of src/components/Hero_Backup.tsx */
-import BulletIcon from '@/components/ui/BulletIcon'
+import React from 'react'
+// Local stub for BulletIcon to avoid importing from live components
+function BulletIcon(props: { className?: string }) {
+  return (
+    <span
+      className={props.className}
+      aria-hidden="true"
+      style={{ display: 'inline-block', width: 6, height: 6, background: 'currentColor', borderRadius: '9999px' }}
+    />
+  )
+}
 
 export default function Hero() {
   return (

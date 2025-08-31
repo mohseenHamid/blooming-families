@@ -1,0 +1,2 @@
+# Ignore archived code from linting
+src/archive/**

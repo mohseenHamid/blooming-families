@@ -1,4 +1,5 @@
 /* Archived copy of src/components/Testimonials.tsx */
+import React from 'react'
 export default function Testimonials() {
   const testimonials = [
     {

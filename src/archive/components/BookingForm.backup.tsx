@@ -1,6 +1,7 @@
 /* Archived copy of src/components/BookingForm.tsx */
 "use client"
 
+import React from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'

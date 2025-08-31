@@ -1,13 +1,81 @@
 /* Archived copy of src/app/(flow)/coaching/book/_PageBackup.tsx */
 "use client"
 
+import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import SessionCalendar from '@/components/SessionCalendar'
-import BookingForm, { BookingFormData } from '@/components/BookingForm'
-import { Button } from '@/components/ui/Button'
-import { safeBack } from '@/lib/navigation'
-import type { Booking } from '@/types/booking'
+
+// Local inline types and stubs to avoid importing from live app
+type SessionType = 'zoom'
+type BookingFormData = {
+  name: string
+  email: string
+  phone: string
+  sessionType: SessionType
+  message?: string
+}
+type Booking = BookingFormData & {
+  id: string
+  date: Date
+  time: string
+  status: 'confirmed'
+  createdAt: Date
+}
+
+function SessionCalendar(props: {
+  onSelectSlot: (date: Date, time: string) => void
+  selectedDate?: Date
+  selectedTime?: string
+}) {
+  // Simple stub: provides a single selectable slot
+  return (
+    <div className="text-sm text-text-grey">
+      <p className="mb-2">[Archive stub calendar]</p>
+      <button
+        type="button"
+        className="btn-outline-green"
+        onClick={() => props.onSelectSlot(new Date(), '09:00')}
+      >
+        Select today 09:00
+      </button>
+    </div>
+  )
+}
+
+function BookingForm(props: {
+  selectedDate?: Date
+  selectedTime?: string
+  isSubmitting: boolean
+  onSubmit: (data: BookingFormData) => void
+}) {
+  const handleSubmit = () => {
+    props.onSubmit({
+      name: 'Archived User',
+      email: 'archived@example.com',
+      phone: '0000000000',
+      sessionType: 'zoom',
+      message: 'Archived booking form'
+    })
+  }
+  return (
+    <div className="text-sm text-text-grey">
+      <p className="mb-2">[Archive stub booking form]</p>
+      <button type="button" className="btn-secondary" onClick={handleSubmit} disabled={props.isSubmitting}>
+        {props.isSubmitting ? 'Submitting…' : 'Submit'}
+      </button>
+    </div>
+  )
+}
+
+function Button(props: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'outline' | 'solid' }) {
+  const { variant = 'solid', className = '', ...rest } = props
+  const base = variant === 'outline' ? 'btn-outline-green' : 'btn-secondary'
+  return <button {...rest} className={`${base} ${className}`} />
+}
+
+function safeBack(router: ReturnType<typeof useRouter>, fallback: string) {
+  try { router.back() } catch { router.push(fallback) }
+}
 
 export default function BookSessionPageBackup() {
   const router = useRouter()
