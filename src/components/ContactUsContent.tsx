@@ -4,6 +4,7 @@ import { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import ConfirmDialog from '@/components/ui/ConfirmDialog'
 import { toast } from 'sonner'
+import FAQAccordion from '@/components/FAQAccordion'
 
 export type ContactUsContentHandle = { attemptBack: () => void }
 
@@ -148,55 +149,7 @@ const ContactUsContent = ({ showBack = false, onBack }: { showBack?: boolean; on
         </div>
 
         {/* FAQs */}
-        <div className="space-y-8 mt-2">
-          <h2 className="text-2xl font-heading font-semibold text-primary-navy">FAQs</h2>
-          <div className="grid grid-cols-1 gap-4">
-            {/* FAQ 1 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-              <details className="group">
-                <summary className="flex w-full items-center justify-between cursor-pointer px-6 py-5 text-primary-navy font-medium list-none hover:bg-gray-50">
-                  <span>What can I expect from an initial response?</span>
-                  <svg className="w-5 h-5 text-text-grey transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </summary>
-                <div className="px-6 pt-4 pb-6 text-text-grey border-t leading-relaxed">
-                  We usually reply within 1–2 business days with next steps and any clarifying questions.
-                </div>
-              </details>
-            </div>
-
-            {/* FAQ 2 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-              <details className="group">
-                <summary className="flex w-full items-center justify-between cursor-pointer px-6 py-5 text-primary-navy font-medium list-none hover:bg-gray-50">
-                  <span>Do you offer in-person sessions?</span>
-                  <svg className="w-5 h-5 text-text-grey transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </summary>
-                <div className="px-6 pt-4 pb-6 text-text-grey border-t leading-relaxed">
-                  Most sessions are online via Zoom. If you require in-person, mention it in your message and we’ll explore options.
-                </div>
-              </details>
-            </div>
-
-            {/* FAQ 3 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-              <details className="group">
-                <summary className="flex w-full items-center justify-between cursor-pointer px-6 py-5 text-primary-navy font-medium list-none hover:bg-gray-50">
-                  <span>Is there a cost for making an enquiry?</span>
-                  <svg className="w-5 h-5 text-text-grey transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </summary>
-                <div className="px-6 pt-4 pb-6 text-text-grey border-t leading-relaxed">
-                  No. Reaching out is free and without obligation. We’re happy to answer questions before you book.
-                </div>
-              </details>
-            </div>
-          </div>
-        </div>
+        <FAQAccordion title="FAQs" />
       </div>
       <ConfirmDialog
         open={confirmOpen}

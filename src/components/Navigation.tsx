@@ -83,6 +83,7 @@ export default function Navigation() {
     { name: 'Home', href: '/' },
     { name: 'Coaching', href: '/coaching' },
     { name: 'Courses', href: '/courses' },
+    { name: 'Resources', href: '/resources' },
   ]
 
   return (

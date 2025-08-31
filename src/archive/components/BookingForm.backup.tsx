@@ -1,3 +1,4 @@
+/* Archived copy of src/components/BookingForm.tsx */
 "use client"
 
 import { useState } from 'react'

@@ -16,6 +16,8 @@ const config: Config = {
           navy: '#172A53',
           green: '#8BC34A',
           'green-hover': '#7CB342',
+          orange: '#FFA037',
+          'orange-hover': '#E68F30',
         },
         background: {
           white: '#FFFFFF',

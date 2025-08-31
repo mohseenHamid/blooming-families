@@ -1,4 +1,7 @@
-export type SessionType = 'zoom' | 'in-person'
+// Archived copy of src/types/booking.ts
+// Note: Only online (Zoom) sessions are supported in the current site.
+
+export type SessionType = 'zoom'
 
 export interface BookingBase {
   name: string

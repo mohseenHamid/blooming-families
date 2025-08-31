@@ -1,3 +1,4 @@
+/* Archived copy of src/components/About.tsx */
 import BulletIcon from '@/components/ui/BulletIcon'
 
 export default function About() {

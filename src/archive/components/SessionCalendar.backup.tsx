@@ -1,3 +1,4 @@
+/* Archived copy of src/components/SessionCalendar.tsx */
 "use client"
 
 import { useState } from 'react'

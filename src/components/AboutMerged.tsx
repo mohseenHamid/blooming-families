@@ -98,10 +98,10 @@ export default function AboutMerged() {
                 Book a consultation
               </button>
               <a
-                href="/courses"
+                href="/contact"
                 className="btn-outline-green w-full sm:w-auto"
               >
-                Explore courses
+                Contact us
               </a>
             </div>
 

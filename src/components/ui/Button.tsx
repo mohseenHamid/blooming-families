@@ -3,7 +3,7 @@
 import clsx from 'clsx'
 import React from 'react'
 
-type Variant = 'primary' | 'secondary' | 'outline' | 'ghost'
+type Variant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'orange'
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: Variant
@@ -16,6 +16,7 @@ const variants: Record<Variant, string> = {
   secondary: 'bg-primary-navy text-white hover:bg-primary-navy/90 px-6 py-3 focus:ring-primary-navy',
   outline: 'border border-gray-200 text-primary-navy hover:bg-gray-100 px-4 py-2 focus:ring-gray-300 transition-shadow hover:shadow-sm',
   ghost: 'text-primary-navy hover:bg-gray-50 px-3 py-2 focus:ring-gray-200',
+  orange: 'bg-primary-orange text-white hover:bg-primary-orange-hover px-6 py-3 focus:ring-primary-orange',
 }
 
 export function Button({ className, variant = 'primary', ...props }: ButtonProps) {

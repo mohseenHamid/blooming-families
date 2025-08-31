@@ -1,3 +1,4 @@
+/* Archived copy of src/components/Testimonials.tsx */
 export default function Testimonials() {
   const testimonials = [
     {

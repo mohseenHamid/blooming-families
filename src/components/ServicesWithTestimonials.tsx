@@ -52,35 +52,16 @@ export default function ServicesWithTestimonials() {
         </div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mx-auto">
-          {/* 121 Coaching */}
-          <article className="card text-center group" aria-labelledby="svc-121-title">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto">
+          {/* Coaching */}
+          <article className="card text-center group" aria-labelledby="svc-coaching-title">
             <div className="mb-6">
               <Users className="w-16 h-16 text-primary-green mx-auto mb-4" aria-hidden />
-              <h3 id="svc-121-title" className="text-2xl font-heading font-semibold text-primary-navy mb-4">
-                121 coaching
+              <h3 id="svc-coaching-title" className="text-2xl font-heading font-semibold text-primary-navy mb-4">
+                Coaching
               </h3>
               <p className="text-text-grey text-base md:text-lg leading-relaxed mb-6">
-                Personalised 1-to-1 support for individuals seeking clarity, direction, or healing
-              </p>
-              <Link 
-                href="/coaching" 
-                className="text-primary-green font-semibold text-base md:text-lg hover:text-primary-green-hover transition-colors"
-              >
-                Learn more →
-              </Link>
-            </div>
-          </article>
-
-          {/* Couples Coaching */}
-          <article className="card text-center group" aria-labelledby="svc-couples-title">
-            <div className="mb-6">
-              <Users className="w-16 h-16 text-primary-green mx-auto mb-4" aria-hidden />
-              <h3 id="svc-couples-title" className="text-2xl font-heading font-semibold text-primary-navy mb-4">
-                Couples coaching
-              </h3>
-              <p className="text-text-grey text-base md:text-lg leading-relaxed mb-6">
-                Guidance and facilitation for couples preparing for or navigating marriage and parenting
+                One-to-one and couples coaching. Personalised support for individuals seeking clarity, direction, or healing, and facilitated guidance for couples preparing for or navigating marriage and parenting.
               </p>
               <Link 
                 href="/coaching" 
@@ -130,7 +111,7 @@ export default function ServicesWithTestimonials() {
                     {/* inner padding creates spacing without affecting slide width */}
                     <div className="h-full px-0 md:px-3">
                       <div className="card h-full p-5">
-                        <div className="bg-primary-green/5 p-5 rounded-lg border-l-4 border-primary-green">
+                        <div className="bg-primary-navy/5 p-5 rounded-lg border-l-4 border-primary-navy/60">
                           <p className="text-text-grey italic leading-relaxed text-base md:text-lg">"{t.content}"</p>
                         </div>
                         <p className="font-semibold text-primary-navy mt-3">{t.name}</p>
