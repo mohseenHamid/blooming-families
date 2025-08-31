@@ -2,13 +2,82 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import ContactModal from '@/components/ContactModal'
+import ContactUsOverlay from '@/components/ContactUsOverlay'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
+
+  const openContactOverlay = () => {
+    setContactOpen(true)
+    // push a history state so Back closes the overlay
+    try {
+      const url = new URL(window.location.href)
+      if (url.searchParams.get('contact') !== '1') {
+        url.searchParams.set('contact', '1')
+        window.history.pushState({ contactOverlay: true }, '', url)
+      }
+    } catch {}
+  }
+
+  const closeContactOverlay = () => {
+    setContactOpen(false)
+    try {
+      const url = new URL(window.location.href)
+      if (url.searchParams.get('contact') === '1') {
+        // Go back to previous URL (removes the overlay marker)
+        window.history.back()
+      }
+    } catch {}
+  }
+
+  // Allow other components (e.g., Footer) to open the contact overlay
+  useEffect(() => {
+    const openHandler = () => openContactOverlay()
+    window.addEventListener('open-contact-overlay', openHandler as EventListener)
+    return () => window.removeEventListener('open-contact-overlay', openHandler as EventListener)
+  }, [])
+
+  // Open on load if URL has ?contact=1
+  useEffect(() => {
+    try {
+      const url = new URL(window.location.href)
+      if (url.searchParams.get('contact') === '1') {
+        setContactOpen(true)
+      }
+    } catch {}
+  }, [])
+
+  // Close when navigating back/forward to a URL without the param
+  useEffect(() => {
+    const onPop = () => {
+      try {
+        const url = new URL(window.location.href)
+        if (url.searchParams.get('contact') !== '1') {
+          if (contactOpen) {
+            // Ask overlay to attempt a guarded close
+            window.dispatchEvent(new Event('attempt-close-contact'))
+            // If user cancels, overlay stays open; restore the URL param
+            setTimeout(() => {
+              if (contactOpen) {
+                const u = new URL(window.location.href)
+                if (u.searchParams.get('contact') !== '1') {
+                  u.searchParams.set('contact', '1')
+                  window.history.pushState({ contactOverlay: true }, '', u)
+                }
+              }
+            }, 50)
+          } else {
+            setContactOpen(false)
+          }
+        }
+      } catch {}
+    }
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [contactOpen])
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -62,7 +131,7 @@ export default function Navigation() {
               <button
                 type="button"
                 className="btn-nav-outline"
-                onClick={() => setContactOpen(true)}
+                onClick={openContactOverlay}
                 aria-label="Contact us"
               >
                 Contact us
@@ -97,7 +166,7 @@ export default function Navigation() {
               <button
                 type="button"
                 className="block w-full mx-3 mt-2 btn-outline text-center"
-                onClick={() => { setIsOpen(false); setContactOpen(true) }}
+                onClick={() => { setIsOpen(false); openContactOverlay() }}
                 aria-label="Contact us"
               >
                 Contact us
@@ -116,7 +185,7 @@ export default function Navigation() {
             </div>
           </div>
         )}
-        <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
+        <ContactUsOverlay open={contactOpen} onClose={closeContactOverlay} />
       </div>
     </nav>
   )

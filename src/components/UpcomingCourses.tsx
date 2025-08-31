@@ -40,14 +40,17 @@ export default function UpcomingCourses() {
     <section className="pt-16 lg:pt-10 pb-16 lg:pb-20 bg-background-grey overflow-hidden">
       <div className="container-custom">
         <div className="text-center mb-10 lg:mb-8">
+          <span className="inline-block bg-primary-navy/10 text-primary-navy px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm font-medium mb-4">
+            Programmes
+          </span>
           <h2 className="text-[clamp(1.5rem,3.8vw+0.4rem,2.5rem)] font-heading font-bold text-primary-navy mb-3 lg:mb-2">
-            Professional development programs
+            Professional development programmes
           </h2>
           <p className="text-base md:text-lg text-text-grey max-w-2xl mx-auto">
             Structured learning opportunities for families seeking targeted support and skill development.
           </p>
           <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <p className="text-blue-800 font-medium">Currently developing new programs for 2024. Contact us to discuss your specific needs.</p>
+            <p className="text-blue-800 font-medium">Currently developing new programmes for 2024. Contact us to discuss your specific needs.</p>
           </div>
         </div>
 

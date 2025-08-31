@@ -8,9 +8,7 @@ import { Button } from '@/components/ui/Button'
 import { safeBack } from '@/lib/navigation'
 import type { Booking } from '@/types/booking'
 
-// Booking type is centralized in src/types/booking.ts
-
-export default function BookSessionPage() {
+export default function BookSessionPageBackup() {
   const router = useRouter()
   const [selectedDate, setSelectedDate] = useState<Date>()
   const [selectedTime, setSelectedTime] = useState<string>()
@@ -25,11 +23,8 @@ export default function BookSessionPage() {
     if (!selectedDate || !selectedTime) return
 
     setIsSubmitting(true)
-    
-    // Simulate booking process
     await new Promise(resolve => setTimeout(resolve, 1000))
 
-    // Create booking object
     const booking: Booking = {
       ...formData,
       id: `booking_${Date.now()}`,
@@ -39,12 +34,10 @@ export default function BookSessionPage() {
       createdAt: new Date()
     }
 
-    // Store in localStorage for testing
     const existingBookings = JSON.parse(localStorage.getItem('bookings') || '[]')
     existingBookings.push(booking)
     localStorage.setItem('bookings', JSON.stringify(existingBookings))
 
-    // Redirect to confirmation
     localStorage.setItem('latestBooking', JSON.stringify(booking))
     router.push('/coaching/confirmation')
   }
@@ -54,21 +47,10 @@ export default function BookSessionPage() {
       <div className="page-container">
         <div className="page-header-row">
           <div className="flex items-center justify-between gap-4">
-            <h1 className="page-title">
-              Book your coaching session
-            </h1>
-            <Button
-              variant="outline"
-              onClick={() => safeBack(router, '/coaching')}
-              aria-label="Go back"
-            >
-              Back
-            </Button>
+            <h1 className="page-title">Book your coaching session</h1>
+            <Button variant="outline" onClick={() => safeBack(router, '/coaching')} aria-label="Go back">Back</Button>
           </div>
-          <p className="page-intro">
-            Select your preferred date and time, then complete your booking details
-          </p>
-          {/* Info banner: sessions are online */}
+          <p className="page-intro">Select your preferred date and time, then complete your booking details</p>
           <div className="mt-3 inline-flex items-start gap-3 rounded-md border border-primary-green/20 bg-primary-green/10 px-4 py-3 text-sm text-primary-navy">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-primary-green mt-0.5">
               <rect x="3" y="7" width="12" height="10" rx="2" ry="2" />
@@ -78,41 +60,22 @@ export default function BookSessionPage() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div
-          className="relative mb-10"
-          aria-hidden="true"
-        >
+        <div className="relative mb-10" aria-hidden="true">
           <div className="h-[3px] w-full bg-gradient-to-r from-gray-50 via-gray-300 to-gray-50" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Calendar Section */}
           <div className="space-y-6">
-            <h2 className="text-xl font-heading font-semibold text-primary-navy">
-              1. Choose date and time
-            </h2>
+            <h2 className="text-xl font-heading font-semibold text-primary-navy">1. Choose date and time</h2>
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <SessionCalendar
-                onSelectSlot={handleSelectSlot}
-                selectedDate={selectedDate}
-                selectedTime={selectedTime}
-              />
+              <SessionCalendar onSelectSlot={handleSelectSlot} selectedDate={selectedDate} selectedTime={selectedTime} />
             </div>
           </div>
 
-          {/* Booking Form Section */}
           <div className="space-y-6">
-            <h2 className="text-xl font-heading font-semibold text-primary-navy">
-              2. Your details
-            </h2>
+            <h2 className="text-xl font-heading font-semibold text-primary-navy">2. Your details</h2>
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <BookingForm
-                selectedDate={selectedDate}
-                selectedTime={selectedTime}
-                onSubmit={handleBookingSubmit}
-                isSubmitting={isSubmitting}
-              />
+              <BookingForm selectedDate={selectedDate} selectedTime={selectedTime} onSubmit={handleBookingSubmit} isSubmitting={isSubmitting} />
             </div>
           </div>
         </div>

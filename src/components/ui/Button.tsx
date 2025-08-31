@@ -14,7 +14,7 @@ const base = 'inline-flex items-center rounded-md font-medium transition-colors 
 const variants: Record<Variant, string> = {
   primary: 'bg-primary-green text-white hover:bg-primary-green-hover px-6 py-3 focus:ring-primary-green',
   secondary: 'bg-primary-navy text-white hover:bg-primary-navy/90 px-6 py-3 focus:ring-primary-navy',
-  outline: 'border border-gray-200 text-primary-navy hover:bg-gray-50 px-4 py-2 focus:ring-gray-300',
+  outline: 'border border-gray-200 text-primary-navy hover:bg-gray-100 px-4 py-2 focus:ring-gray-300 transition-shadow hover:shadow-sm',
   ghost: 'text-primary-navy hover:bg-gray-50 px-3 py-2 focus:ring-gray-200',
 }
 

@@ -40,15 +40,15 @@ export default function CoachingPage() {
               </div>
             </div>
             <div className="text-center">
-              <Link 
-                href="/coaching/book" 
+              <button
+                type="button"
                 className="btn-secondary shadow-lg"
                 data-cal-link="blooming-families/30min"
                 data-cal-namespace="30min"
                 data-cal-config='{"layout":"month_view"}'
               >
                 Request initial consultation
-              </Link>
+              </button>
           </div>
           </div>
         </div>
@@ -77,15 +77,15 @@ export default function CoachingPage() {
 
         {/* CTA */}
         <div className="text-center">
-          <Link 
-            href="/coaching/book"
+          <button 
+            type="button"
             className="btn-secondary shadow-lg"
             data-cal-link="blooming-families/30min"
             data-cal-namespace="30min"
             data-cal-config='{"layout":"month_view"}'
           >
             Book your session
-          </Link>
+          </button>
           <p className="text-text-light text-sm mt-4">
             Choose your preferred date and time in the next step
           </p>

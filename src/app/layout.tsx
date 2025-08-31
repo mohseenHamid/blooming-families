@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
+import ToastProvider from '@/components/providers/ToastProvider'
 
 export const metadata: Metadata = {
   title: 'Blooming Families - Coaching & Family Services',
@@ -23,6 +24,7 @@ export default function RootLayout({
           Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
         `}</Script>
         {children}
+        <ToastProvider />
       </body>
     </html>
   )

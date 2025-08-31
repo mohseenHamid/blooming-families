@@ -29,7 +29,7 @@ export default function ConfirmationPage() {
             We couldn't find your booking details. Please try booking again.
           </p>
           <Link 
-            href="/coaching/book"
+            href="/coaching"
             className="inline-block bg-primary-green hover:bg-primary-green-hover text-white px-6 py-3 rounded-md font-semibold"
           >
             Book a session
@@ -144,7 +144,7 @@ export default function ConfirmationPage() {
             Back to home
           </Link>
           <Link 
-            href="/coaching/book"
+            href="/coaching"
             className="inline-block border border-primary-green text-primary-green hover:bg-primary-green hover:text-white px-6 py-3 rounded-md font-semibold transition-colors"
           >
             Book another session
