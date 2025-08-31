@@ -1,12 +1,14 @@
+/* Archived copy of src/app/(flow)/coaching/confirmation/page.tsx */
 "use client"
 
 import BulletIcon from '@/components/ui/BulletIcon'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import type { Booking } from '@/types/booking'
+// Note: This archived file previously imported Booking types from '@/types/booking',
+// which has also been archived. This file remains in archive only and is not used in build.
 
 export default function ConfirmationPage() {
-  const [booking, setBooking] = useState<Booking | null>(null)
+  const [booking, setBooking] = useState<any | null>(null)
 
   useEffect(() => {
     const latestBooking = localStorage.getItem('latestBooking')
@@ -86,7 +88,7 @@ export default function ConfirmationPage() {
                 <div>
                   <label className="block text-sm font-medium text-text-grey mb-1">Date</label>
                   <p className="text-primary-navy font-medium">
-                    {booking.date.toLocaleDateString('en-GB', { 
+                    {new Date(booking.date).toLocaleDateString('en-GB', { 
                       weekday: 'long', 
                       year: 'numeric', 
                       month: 'long', 
@@ -124,10 +126,7 @@ export default function ConfirmationPage() {
             </li>
             <li className="flex items-start">
               <BulletIcon className="w-2 mt-2 mr-3 flex-shrink-0" />
-              {booking.sessionType === 'zoom' 
-                ? 'A Zoom link will be sent 24 hours before your session'
-                : 'Location details will be confirmed via email'
-              }
+              A Zoom link will be sent 24 hours before your session
             </li>
             <li className="flex items-start">
               <BulletIcon className="w-2 mt-2 mr-3 flex-shrink-0" />
