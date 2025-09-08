@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { Instagram } from 'lucide-react'
 import { Button } from './ui/Button'
 
 export default function Footer() {
@@ -25,43 +26,30 @@ export default function Footer() {
             <p className="text-text-light mb-4">
               Supporting families, couples, and individuals through life's journey with expert coaching and courses.
             </p>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
-              <p className="text-text-light">
-                <strong>Email:</strong> info@bloomingfamilies.com<br />
-                <strong>Instagram:</strong> @bloomingfamilies
-              </p>
+            <div className="flex items-center gap-3 sm:gap-4">
               <Link href="/contact" aria-label="Contact us">
                 <Button variant="secondary" className="whitespace-nowrap">Contact us</Button>
+              </Link>
+              <Link
+                href="https://www.instagram.com/bloomingparenting"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Instagram"
+                className="inline-flex items-center justify-center rounded-md bg-primary-navy text-white hover:bg-primary-navy/90 px-3 py-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-navy"
+              >
+                <Instagram className="h-5 w-5" aria-hidden="true" />
               </Link>
             </div>
           </div>
 
-          {/* Newsletter + Copyright (RHS) */}
-          <div className="flex flex-col md:items-end">
-            <div className="w-full md:max-w-sm">
-              <h4 className="font-heading font-semibold text-lg mb-2 md:text-right">Subscribe to our newsletter</h4>
-              <p className="text-text-light mb-4 md:text-right">Monthly insights and upcoming programmes. No spam.</p>
-              <form className="flex w-full md:justify-end" onSubmit={(e) => e.preventDefault()}>
-                <div className="w-full md:w-auto md:flex md:items-center md:gap-2">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Your email address"
-                    className="w-full md:w-64 rounded-full px-4 py-2 text-text-dark placeholder:text-text-grey focus:outline-none focus:ring-2 focus:ring-primary-green"
-                    aria-label="Email address"
-                  />
-                  <button
-                    type="submit"
-                    className="mt-2 md:mt-0 inline-flex items-center justify-center rounded-full bg-primary-green text-text-dark font-medium px-4 py-2 hover:bg-primary-green/90 transition-colors"
-                  >
-                    Subscribe
-                  </button>
-                </div>
-              </form>
+          {/* Links and Copyright */}
+          <div className="flex flex-col md:items-end justify-between">
+            <div className="flex items-center justify-center md:justify-end space-x-4">
+              <Link href="/privacy-policy" className="text-sm text-text-light hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-sm text-text-light hover:text-white transition-colors">Terms</Link>
+              <Link href="/contact" className="text-sm text-text-light hover:text-white transition-colors">Contact</Link>
             </div>
-
-            {/* Copyright inline on RHS */}
-            <p className="text-text-light/80 text-xs md:text-right mt-6">&copy; 2025 Blooming Families. All rights reserved.</p>
+            <p className="text-text-light/80 text-xs text-center md:text-right mt-8 md:mt-0">&copy; 2025 Blooming Families. All rights reserved.</p>
           </div>
         </div>
       </div>

@@ -1,0 +1,255 @@
+{
+  "project": "Blooming Families Website MVP",
+  "pages": [
+    {
+      "name": "Homepage",
+      "priority": "P1",
+      "components": [
+        {
+          "type": "card",
+          "title": "Training & Events for Organisations",
+          "subtitle": "Enquire about tailored programmes, speaker events, or training sessions.",
+          "cta": "Enquire Now",
+          "link": "custom enquiry overlay"
+        },
+        {
+          "type": "banner",
+          "text": "Want Dr Ruby to deliver tailored training or courses at your organisation? Enquire here.",
+          "cta": "Enquire Now",
+          "link": "custom enquiry overlay"
+        },
+        {
+          "type": "section",
+          "title": "About Coach",
+          "update": "Link Read More to new About page"
+        },
+        {
+          "type": "profile_card",
+          "action": "Remove image from card"
+        },
+        {
+          "type": "footer",
+          "update": "Remove newsletter; add Privacy Policy | Terms | Contact links"
+        }
+      ]
+    },
+    {
+      "name": "About Page",
+      "priority": "P2",
+      "components": [
+        {
+          "type": "hero",
+          "title": "Our Story"
+        },
+        {
+          "type": "section",
+          "title": "Why Blooming Families?",
+          "content": "Placeholder for mission/purpose/value"
+        },
+        {
+          "type": "section",
+          "title": "Our History",
+          "content": "Placeholder for origin story"
+        },
+        {
+          "type": "section",
+          "title": "The Need We Saw",
+          "content": "Placeholder for societal gap"
+        },
+        {
+          "type": "cta",
+          "text": "Meet the Team",
+          "link": "future team page"
+        }
+      ]
+    },
+    {
+      "name": "Contact Enquiry Overlay",
+      "priority": "P1",
+      "components": [
+        {
+          "type": "form_field",
+          "label": "Name"
+        },
+        {
+          "type": "form_field",
+          "label": "Organisation Name"
+        },
+        {
+          "type": "form_field",
+          "label": "Email"
+        },
+        {
+          "type": "form_field",
+          "label": "Phone"
+        },
+        {
+          "type": "dropdown",
+          "label": "Type of Request",
+          "options": [
+            "Speaker Invite",
+            "In-Person Training",
+            "Course Delivery",
+            "Workshop Series"
+          ]
+        },
+        {
+          "type": "textarea",
+          "label": "Message"
+        },
+        {
+          "type": "checkbox",
+          "label": "Would you like us to follow up with a phone call?"
+        },
+        {
+          "type": "confirmation_message",
+          "text": "Thank you for your enquiry. We\u2019ll be in touch shortly."
+        }
+      ],
+      "submit_action": {
+        "send_to": "info@bloomingfamilies.com",
+        "integrations": [
+          "optional_zapier_crm"
+        ]
+      }
+    },
+    {
+      "name": "Courses Page",
+      "priority": "P2",
+      "components": [
+        {
+          "type": "hero",
+          "title": "Parenting & Couples Courses",
+          "subtitle": "Explore our structured group programmes, online and in-person."
+        },
+        {
+          "type": "card_group",
+          "title": "Course Categories",
+          "items": [
+            "Parenting - Primary Age",
+            "Parenting - Secondary Age",
+            "Couples - New Couples (Online/Residential)",
+            "Workshop Series (Recorded)"
+          ]
+        },
+        {
+          "type": "dynamic_section",
+          "title": "Upcoming Courses",
+          "fields": [
+            "Title",
+            "Format",
+            "Date Range",
+            "CTA"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Coaching Services Page",
+      "priority": "P1",
+      "components": [
+        {
+          "type": "hero",
+          "title": "Transformational Coaching & Counselling",
+          "subtitle": "Personalised 1:1 and Couples Support Tailored to You"
+        },
+        {
+          "type": "text_block",
+          "text": "All coaching starts with an Initial Consultation. Coaching session types and pricing are discussed after the consultation."
+        },
+        {
+          "type": "session_types",
+          "format": "accordion",
+          "items": [
+            {
+              "type": "1:1 Coaching",
+              "subtypes": [
+                "Parenting",
+                "Co-Parenting after Divorce",
+                "Family Dynamics"
+              ]
+            },
+            {
+              "type": "Couples Coaching",
+              "subtypes": [
+                "New Couples",
+                "Long-Term Couples",
+                "Joint Sessions",
+                "Mediation",
+                "Family Coaching"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "general_info_section",
+          "items": [
+            "What\u2019s Included",
+            "Block Booking Facility",
+            "Refund Info",
+            "Cancellation Policy",
+            "Confidentiality",
+            "Personalised Approach",
+            "Coaching Agreement (link)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Resources Page",
+      "priority": "P3",
+      "components": [
+        {
+          "type": "accordion_section",
+          "title": "Publications",
+          "content": "Placeholder"
+        },
+        {
+          "type": "accordion_section",
+          "title": "Podcasts",
+          "content": "Title, Date, Link"
+        },
+        {
+          "type": "accordion_section",
+          "title": "Downloadables",
+          "content": "Printable PDFs & tools"
+        }
+      ]
+    },
+    {
+      "name": "Upcoming Events Section",
+      "priority": "P3",
+      "components": [
+        {
+          "type": "event_reel",
+          "layout": "horizontal",
+          "items": [
+            "Event Title",
+            "Date/Time",
+            "Format",
+            "Short Description",
+            "CTA"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "User Portal Placeholder",
+      "priority": "P4",
+      "components": [
+        {
+          "type": "hero",
+          "title": "Client Portal (Coming Soon)"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Manage your bookings",
+            "View past sessions",
+            "Access downloadable resources"
+          ]
+        }
+      ]
+    }
+  ]
+}

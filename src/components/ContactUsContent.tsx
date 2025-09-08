@@ -61,18 +61,18 @@ const ContactUsContent = ({ showBack = false, onBack }: { showBack?: boolean; on
   // (onAnyChange defined earlier)
 
   return (
-    <section className="min-h-screen py-20 md:py-24 pb-24 bg-gradient-to-br from-background-light via-background-white to-background-light">
-      <div className="page-container">
+    <section className="min-h-screen py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 bg-gradient-to-br from-background-light via-background-white to-background-light">
+      <div className="page-container px-4 sm:px-6">
         <div className="page-header-row">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center justify-between gap-4">
             <h1 className="page-title">Contact us</h1>
             {showBack && (
-              <Button variant="outline" onClick={handleAttemptBack} aria-label="Go back">Back</Button>
+              <Button variant="outline" onClick={handleAttemptBack} aria-label="Go back" className="shrink-0 min-h-[44px]">Back</Button>
             )}
           </div>
           <p className="page-intro">We'd love to hear from you. Send us a message and we'll get back to you shortly.</p>
-          <div className="mt-3 inline-flex items-start gap-3 rounded-md border border-primary-green/20 bg-primary-green/10 px-4 py-3 text-sm text-primary-navy">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-primary-green mt-0.5">
+          <div className="mt-4 flex items-start gap-3 rounded-lg border border-primary-green/20 bg-primary-green/10 p-4 text-sm text-primary-navy">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-primary-green mt-0.5 shrink-0">
               <rect x="3" y="7" width="12" height="10" rx="2" ry="2" />
               <path d="M21 8l-5 3v2l5 3V8z" fill="currentColor" />
             </svg>
@@ -84,11 +84,11 @@ const ContactUsContent = ({ showBack = false, onBack }: { showBack?: boolean; on
           <div className="h-[3px] w-full bg-gradient-to-r from-gray-50 via-gray-300 to-gray-50" />
         </div>
 
-        <div className="grid grid-cols-1 gap-12">
-          <div className="space-y-6">
-            <h2 className="text-xl font-heading font-semibold text-primary-navy">How we can help</h2>
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <ul className="list-disc pl-5 space-y-2 text-text-grey">
+        <div className="grid grid-cols-1 gap-8 sm:gap-10 lg:gap-12">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-lg sm:text-xl font-heading font-semibold text-primary-navy">How we can help</h2>
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100">
+              <ul className="list-disc pl-5 space-y-2 text-text-grey text-sm sm:text-base">
                 <li>Questions about coaching and services</li>
                 <li>Speaking and collaboration requests</li>
                 <li>Press and media enquiries</li>
@@ -97,46 +97,46 @@ const ContactUsContent = ({ showBack = false, onBack }: { showBack?: boolean; on
             </div>
           </div>
 
-          <div className="space-y-6">
-            <h2 className="text-xl font-heading font-semibold text-primary-navy">Send us a message</h2>
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <form onSubmit={onSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-lg sm:text-xl font-heading font-semibold text-primary-navy">Send us a message</h2>
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100">
+              <form onSubmit={onSubmit} className="space-y-4 sm:space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-text-grey mb-1">Name</label>
-                    <input id="name" name="name" type="text" required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green" placeholder="Your full name" onChange={onAnyChange} />
+                    <label htmlFor="name" className="block text-sm font-medium text-text-grey mb-2">Name</label>
+                    <input id="name" name="name" type="text" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green text-base" placeholder="Your full name" onChange={onAnyChange} />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-text-grey mb-1">Email</label>
-                    <input id="email" name="email" type="email" required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green" placeholder="you@example.com" onChange={onAnyChange} />
+                    <label htmlFor="email" className="block text-sm font-medium text-text-grey mb-2">Email</label>
+                    <input id="email" name="email" type="email" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green text-base" placeholder="you@example.com" onChange={onAnyChange} />
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-text-grey mb-1">Phone (optional)</label>
-                    <input id="phone" name="phone" type="tel" className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green" placeholder="+44 7700 900123" onChange={onAnyChange} />
+                    <label htmlFor="phone" className="block text-sm font-medium text-text-grey mb-2">Phone (optional)</label>
+                    <input id="phone" name="phone" type="tel" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green text-base" placeholder="+44 7700 900123" onChange={onAnyChange} />
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-text-grey mb-2">Subject</label>
+                    <select id="subject" name="subject" defaultValue="" className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green text-base" onChange={onAnyChange}>
+                      <option value="" disabled>Select a subject</option>
+                      <option value="General enquiry">General enquiry</option>
+                      <option value="Coaching question">Coaching question</option>
+                      <option value="Collaboration request">Collaboration request</option>
+                      <option value="Press / media">Press / media</option>
+                      <option value="Other">Other</option>
+                    </select>
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-text-grey mb-1">Subject</label>
-                  <select id="subject" name="subject" defaultValue="" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green" onChange={onAnyChange}>
-                    <option value="" disabled>Select a subject</option>
-                    <option value="General enquiry">General enquiry</option>
-                    <option value="Coaching question">Coaching question</option>
-                    <option value="Collaboration request">Collaboration request</option>
-                    <option value="Press / media">Press / media</option>
-                    <option value="Other">Other</option>
-                  </select>
+                  <label htmlFor="message" className="block text-sm font-medium text-text-grey mb-2">Message</label>
+                  <textarea id="message" name="message" required rows={6} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green text-base resize-none" placeholder="Share a few details about your enquiry" onChange={onAnyChange} />
                 </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-text-grey mb-1">Message</label>
-                  <textarea id="message" name="message" required rows={6} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green/40 focus:border-primary-green" placeholder="Share a few details about your enquiry" onChange={onAnyChange} />
-                </div>
-                <div className="flex items-center justify-end gap-3 pt-2">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3 pt-2">
                   {showBack && (
-                    <Button type="button" variant="outline" onClick={handleAttemptBack}>Cancel</Button>
+                    <Button type="button" variant="outline" onClick={handleAttemptBack} className="min-h-[48px]">Cancel</Button>
                   )}
-                  <Button type="submit">Send message</Button>
+                  <Button type="submit" className="min-h-[48px]">Send message</Button>
                 </div>
               </form>
             </div>

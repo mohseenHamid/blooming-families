@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
-import ContactUsOverlay from '@/components/ContactUsOverlay'
+import { Menu, X } from 'lucide-react';
+import ContactUsOverlay from '@/components/ContactUsOverlay';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -81,15 +81,16 @@ export default function Navigation() {
 
   const navigation = [
     { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
     { name: 'Coaching', href: '/coaching' },
     { name: 'Courses', href: '/courses' },
     { name: 'Resources', href: '/resources' },
-  ]
+  ];
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-black/5">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 nav:h-20 nav:grid nav:grid-cols-3">
+        <div className="flex items-center justify-between h-16 xl:h-20 xl:grid xl:grid-cols-3">
           {/* Left: Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center" aria-label="Blooming Families home">
@@ -104,7 +105,7 @@ export default function Navigation() {
           </div>
 
           {/* Center: Desktop Navigation */}
-          <div className="hidden nav:flex items-center justify-center space-x-8">
+          <div className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -117,11 +118,11 @@ export default function Navigation() {
           </div>
 
           {/* Right: CTA and mobile menu */}
-          <div className="flex items-center justify-end gap-2">
-            <div className="hidden nav:flex items-center gap-2">
+          <div className="flex items-center justify-end gap-1 xl:gap-2">
+            <div className="hidden xl:flex items-center gap-2">
               <button
                 type="button"
-                className="btn-nav"
+                className="btn-nav text-sm"
                 data-cal-link="blooming-families/30min"
                 data-cal-namespace="30min"
                 data-cal-config='{"layout":"month_view"}'
@@ -131,20 +132,20 @@ export default function Navigation() {
               </button>
               <button
                 type="button"
-                className="btn-nav-outline"
+                className="btn-nav-outline text-sm"
                 onClick={openContactOverlay}
                 aria-label="Contact us"
               >
                 Contact us
               </button>
             </div>
-            <div className="nav:hidden">
+            <div className="xl:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="ml-2 text-text-grey hover:text-primary-green"
+                className="p-2 text-text-grey hover:text-primary-green transition-colors duration-200 rounded-md hover:bg-gray-50"
                 aria-label="Toggle menu"
               >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
+                {isOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
           </div>
@@ -152,42 +153,59 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="nav:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-text-grey hover:text-primary-green transition-colors duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <button
-                type="button"
-                className="block w-full mx-3 mt-2 btn-outline text-center"
-                onClick={() => { setIsOpen(false); openContactOverlay() }}
-                aria-label="Contact us"
-              >
-                Contact us
-              </button>
-              <button
-                type="button"
-                className="block w-full mx-3 mt-4 btn-primary text-center"
-                data-cal-link="blooming-families/30min"
-                data-cal-namespace="30min"
-                data-cal-config='{"layout":"month_view"}'
-                onClick={() => setIsOpen(false)}
-                aria-label="Book now"
-              >
-                Book now
-              </button>
+          <>
+            {/* Backdrop */}
+            <div 
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm xl:hidden"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+            <div className="xl:hidden relative">
+              <div className="px-4 py-4 space-y-3 bg-white border-t shadow-lg">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block px-4 py-3 text-text-grey hover:text-primary-green hover:bg-gray-50 transition-colors duration-200 rounded-lg font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <div className="pt-4 border-t border-gray-100 space-y-3">
+                  <button
+                    type="button"
+                    className="block w-full btn-outline text-center"
+                    onClick={() => { setIsOpen(false); openContactOverlay() }}
+                    aria-label="Contact us"
+                  >
+                    Contact us
+                  </button>
+                  <button
+                    type="button"
+                    className="block w-full btn-primary text-center"
+                    data-cal-link="blooming-families/30min"
+                    data-cal-namespace="30min"
+                    data-cal-config='{"layout":"month_view"}'
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Book now"
+                  >
+                    Book now
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          </>
         )}
-        <ContactUsOverlay open={contactOpen} onClose={closeContactOverlay} />
       </div>
+      
+      {/* Contact Overlay */}
+      {contactOpen && (
+        <ContactUsOverlay 
+          open={contactOpen}
+          onClose={closeContactOverlay}
+        />
+      )}
     </nav>
   )
 }
