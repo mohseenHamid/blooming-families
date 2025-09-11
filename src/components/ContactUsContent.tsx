@@ -61,8 +61,9 @@ const ContactUsContent = ({ showBack = false, onBack }: { showBack?: boolean; on
   // (onAnyChange defined earlier)
 
   return (
-    <section className="min-h-screen py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 bg-gradient-to-br from-background-light via-background-white to-background-light">
-      <div className="page-container px-4 sm:px-6">
+    <section className="min-h-screen bg-gradient-to-br from-background-light via-background-white to-background-light">
+      <div className="sticky top-0 z-10 bg-gradient-to-br from-background-light via-background-white to-background-light/80 backdrop-blur-sm pb-6 pt-16 sm:pt-20 lg:pt-24 border-b border-black/5">
+        <div className="page-container px-4 sm:px-6">
         <div className="page-header-row">
           <div className="flex items-start sm:items-center justify-between gap-4">
             <h1 className="page-title">Contact us</h1>
@@ -79,6 +80,9 @@ const ContactUsContent = ({ showBack = false, onBack }: { showBack?: boolean; on
             <span>For bookings, use the Book now button. For general questions or collaboration inquiries, use this form.</span>
           </div>
         </div>
+        </div>
+      </div>
+      <div className="page-container px-4 sm:px-6 pt-8 pb-20 sm:pb-24">
 
         <div className="relative mb-10" aria-hidden="true">
           <div className="h-[3px] w-full bg-gradient-to-r from-gray-50 via-gray-300 to-gray-50" />

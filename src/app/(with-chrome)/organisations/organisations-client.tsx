@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { OrganisationEnquiryForm } from '@/components/OrganisationEnquiryForm';
+import { useEnquiry } from '@/components/providers/EnquiryProvider';
 
 const services = [
   {
@@ -21,7 +20,7 @@ const services = [
 ];
 
 export default function OrganisationsPageClient() {
-  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+  const { openEnquiry } = useEnquiry();
   return (
     <div className="bg-background-white">
       <header className="bg-gradient-to-br from-background-white to-primary-navy/5 py-16 lg:py-24">
@@ -49,11 +48,10 @@ export default function OrganisationsPageClient() {
 
         <div className="text-center border-t border-gray-200 pt-12">
           <h3 className="text-2xl font-heading font-semibold text-primary-navy mb-4">Ready to partner with us?</h3>
-          <Button variant="secondary" onClick={() => setIsEnquiryOpen(true)}>Enquire now</Button>
+          <Button variant="secondary" onClick={openEnquiry}>Enquire now</Button>
           <p className="text-text-light text-sm mt-4">Let's discuss how we can support your organisation's goals.</p>
         </div>
       </main>
-      <OrganisationEnquiryForm open={isEnquiryOpen} onOpenChange={setIsEnquiryOpen} />
     </div>
   );
 }

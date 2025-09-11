@@ -3,10 +3,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react';
 import ContactUsOverlay from '@/components/ContactUsOverlay';
 
 export default function Navigation() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
 
@@ -87,10 +89,12 @@ export default function Navigation() {
     { name: 'Resources', href: '/resources' },
   ];
 
+  const filteredNavigation = navigation.filter(item => item.name !== 'Home' || pathname !== '/');
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-black/5">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 xl:h-20 xl:grid xl:grid-cols-3">
+        <div className="relative flex items-center justify-between h-16 xl:h-20">
           {/* Left: Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center" aria-label="Blooming Families home">
@@ -104,9 +108,10 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Center: Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-8">
-            {navigation.map((item) => (
+          {/* Center: Desktop Navigation (Absolutely Centered) */}
+          <div className="hidden lg:flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div className="flex items-center space-x-4 xl:space-x-8">
+            {filteredNavigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -115,6 +120,7 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
+            </div>
           </div>
 
           {/* Right: CTA and mobile menu */}
@@ -162,7 +168,7 @@ export default function Navigation() {
             />
             <div className="xl:hidden relative">
               <div className="px-4 py-4 space-y-3 bg-white border-t shadow-lg">
-                {navigation.map((item) => (
+                {filteredNavigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
